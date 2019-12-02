@@ -32,3 +32,12 @@
 *.exe
 *.out
 *.app
+.gitignore
+.idea/.gitignore
+.idea/aoc_2019.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+CMakeLists.txt
+cmake-build-debug/
+main.cpp
