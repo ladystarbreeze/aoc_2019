@@ -25,9 +25,9 @@ std::vector<uint64_t> split(const std::string &string)
 
 /* that's the heart of our solution: the interpreter!
  * right now, it supports two "ALU instructions":
- * ADD c, a, b (in memory: op byte, source a, source b, dest c), mem[c] = mem[a] + mem[b]
+ * ADD c, a, b (in memory: op, source a, source b, dest c), mem[c] = mem[a] + mem[b]
  * and
- * MUL c, a, b (in memory: op byte, source a, source b, dest c), mem[c] = mem[a] * mem[b]
+ * MUL c, a, b (in memory: op, source a, source b, dest c), mem[c] = mem[a] * mem[b]
  */
 inline void interpret(std::vector<uint64_t> &program, size_t &pc)
 {
@@ -73,7 +73,7 @@ int main()
         copy[2] = verb;
         pc = 0;
 
-        // run interpreter until it hits a STOP opcode
+        // run interpreter until it hits a STOP opcode (99)
         while (copy[pc] != 99)
         {
             interpret(copy, pc);
@@ -96,5 +96,5 @@ int main()
 
     // yay, print out the results!
     printf("Value at position 0: %lu\n", value_p1);
-    printf("100 * noun + verb = %lu\n", 100 * noun + verb - 1u);
+    printf("100 * noun + verb = %lu\n", 100 * noun + verb - 1); // decrement by one due to post-increment of verb
 }
